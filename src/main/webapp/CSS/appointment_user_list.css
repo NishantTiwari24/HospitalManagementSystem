@@ -1,0 +1,288 @@
+@charset "UTF-8";
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa; /* Light greyish-white background */
+    color: #333; /* Dark grey text for readability */
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+	width: 250px;
+	height: 100vh;
+	background-color: #2c3e50;
+	color: white;
+	padding: 20px 0;
+	position: fixed;
+}
+
+.sidebar-header {
+	padding: 0 20px 20px;
+	border-bottom: 1px solid #3d5165;
+}
+
+.sidebar-header h2 {
+	font-size: 1.5rem;
+	margin-bottom: 5px;
+}
+
+.sidebar-header p {
+	font-size: 0.9rem;
+	opacity: 0.7;
+}
+
+.sidebar-menu {
+	padding: 20px;
+}
+
+.menu-item {
+	display: flex;
+	align-items: center;
+	padding: 10px 15px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	transition: background-color 0.2s;
+	text-decoration: none;
+	color: #fff;
+}
+
+.menu-item:hover {
+	background-color: #3d5165;
+}
+
+.menu-item i {
+	margin-right: 15px;
+	font-size: 1.2rem;
+}
+
+/* Main Content Styles */
+.main-content {
+	margin-left: 250px;
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #fff; /* White background for main content */
+}
+
+/* Receptionist List Panel */
+.panel {
+    background-color: #fff; /* White background for panel */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.panel-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e3a5f; /* Dark blue for panel header */
+}
+
+.add-btn {
+    background-color: #90EE90; /* Teal to match theme */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.2s;
+    text-decoration: none;
+}
+
+.add-btn i {
+    margin-right: 5px;
+}
+
+.add-btn:hover {
+    background-color: #008631; /* Slightly darker teal on hover */
+}
+
+.button-group {
+    display: flex;
+    gap: 10px; /* space between buttons */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    max-width: 600px;
+    width: 100%;
+    gap: 10px;
+}
+
+.search-bar input {
+    background-color: #f1f3f5;
+    border: none;
+    border-radius: 8px;
+    color: #333;
+    padding: 8px 12px;
+    flex: 1 1 auto;
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: #aaa;
+}
+
+.search-bar i {
+    position: absolute;
+    margin-left: 10px;
+    color: #666;
+}
+
+.search-bar .search-btn {
+    white-space: nowrap;
+    padding: 8px 16px;
+    background-color: #90EE90;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.user-table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #f1f3f5; /* Light grey for table header */
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    color: rgb(0, 0, 0); /* Medium grey for table text */
+}
+
+th {
+    font-weight: 600;
+}
+
+th i {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+tbody tr {
+    border-bottom: 1px solid rgb(0, 0, 0); /* Light grey border for table rows */
+}
+
+tbody tr:hover {
+    background-color: #f8f9fa; /* Slightly darker grey on hover */
+}
+
+.status-cell {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.status {
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 20px;
+  display: inline-block;
+}
+.status.scheduled {
+    background-color: #fef7e6;
+	color: #f39c12;
+}
+
+.status.completed {
+    background-color: #e3f8e7;
+	color: #27ae60;
+    
+}
+
+.status.cancelled {
+    background-color: #fde9e9;
+	color: #e74c3c;;
+}
+
+/* Action Column Hover Effect */
+.action-cell {
+    position: relative;
+    text-align: center;
+    min-width: 60px;
+}
+
+.action-options {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+.edit-icon, .delete-icon {
+    color: #607d8b;
+    cursor: pointer;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.edit-icon:hover {
+    color: #00bcd4;
+}
+
+.delete-icon:hover {
+    color: #d32f2f;
+}
+
+/* Feedback Messages */
+.success-message, .error-message {
+	position: relative;
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 500;
+	padding: 10px;
+	border-radius: 5px;
+	transition: opacity 0.5s ease;
+	z-index: 10;
+}
+
+.success-message {
+	background-color: #d4edda;
+	color: #155724;
+}
+
+.error-message {
+	background-color: #f8d7da;
+	color: #721c24;
+}
+
