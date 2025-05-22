@@ -71,13 +71,13 @@ public class AdminAddDoctor extends HttpServlet {
         	String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
 
         	String appPath = request.getServletContext().getRealPath("");
-        	String photosDir = "photos/Doctor_Image";
+        	String photosDir = "/photos/Doctor_Image";
 
         	File dir = new File(appPath + File.separator + photosDir);
         	String fullSavePath = dir + File.separator + fileName;
         	filePart.write(fullSavePath);
         	
-        	String relativeWebPath = photosDir + "/" + fileName;
+        	String relativeWebPath = "/HMS" + photosDir + "/" + fileName;
 
             String firstName = request.getParameter("first_name");
             String lastName = request.getParameter("last_name");
@@ -88,7 +88,7 @@ public class AdminAddDoctor extends HttpServlet {
             String username = request.getParameter("username");
             String plainPassword = request.getParameter("password");
             String hashedPassword = PasswordUtil.hashPassword(plainPassword);
-            String dob = request.getParameter("dob");
+            String dob = request.getParameter("date_of_birth");
             String role = request.getParameter("role");
             String address = request.getParameter("address");
             String photoUrl = relativeWebPath;

@@ -39,6 +39,7 @@ public class ReceptionistProfile extends HttpServlet {
             String employeeTimeDuration = userDao.getJoinDurationFormatted(userId);
             String receiptionistImage = userDao.getUserImageById(userId);
             User receptionists = userDao.getUserById(userId);
+    
             
             
             request.setAttribute("employeeTimeDuration", employeeTimeDuration);

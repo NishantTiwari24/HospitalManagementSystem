@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,40 +16,39 @@
 </head>
 <body>
 	<!-- Sidebar -->
-		<jsp:include page="/Doctor/DoctorSidePanel.jsp" />
+		<jsp:include page="/Receptionist/ReceptionistSidePanel.jsp" />
 
 	<div class="content">
 		<div class="header">
-			<c:if test="${not empty sessionScope.successMessage}">
-				<div class="success-message" id="successMessage">${sessionScope.successMessage}</div>
-				<c:remove var="successMessage" scope="session" />
-			</c:if>
-
-			<c:if test="${not empty sessionScope.errorMessage}">
-				<div class="error-message" id="errorMessage">${sessionScope.errorMessage}</div>
-				<c:remove var="errorMessage" scope="session" />
-			</c:if>
 			<div class="header-icon">
 				<i class="fas fa-user"></i>
 			</div>
 			<h1>My Profile</h1>
 		</div>
+		<c:if test="${not empty sessionScope.successMessage}">
+				<div class="success-message" id="successMessage">${sessionScope.successMessage}</div>
+				<c:remove var="successMessage" scope="session" />
+			</c:if>
+			<c:if test="${not empty sessionScope.errorMessage}">
+				<div class="error-message" id="errorMessage">${sessionScope.errorMessage}</div>
+				<c:remove var="errorMessage" scope="session" />
+			</c:if>
 		<div class="profile-container">
 			<div class="profile-pic"
 				style="background-image: url('${doctorImage}');">
 				<div class="online-indicator"></div>
 			</div>
-			<h2 class="profile-name">Dr. ${doctors.firstName}
+			<h2 class="profile-name">Recp. ${doctors.firstName}
 				${doctors.lastName}</h2>
 			<p class="profile-email">${doctors.email}</p>
 			<div class="profile-badges">
-				<span class="badge badge-blue">Doctor Staff</span>
+				<span class="badge badge-blue">Receptionist Staff</span>
 			</div>
 		</div>
 
 		<!-- Editable Profile Form -->
 		<form action="${pageContext.request.contextPath}/Doctor/ProfileUpdate"
-			method="post" class="profile-details">
+			method="post" enctype="multipart/form-data" class="profile-details">
 			<div class="details-grid">
 
 				<div class="detail-item">
@@ -106,6 +106,10 @@
 						<i class="fas fa-briefcase"></i> <span>${employeeTimeDuration}</span>
 					</div>
 				</div>
+				<div class="detail-item">
+					<label>Update Profile Picture</label> <input type="file"
+						name="photo" accept="image/jpeg" />
+				</div>
 			</div>
 
 			<button type="submit" class="update-btn">Update Profile</button>
@@ -147,7 +151,7 @@
 	</div>
 	<script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Auto-hide success/error messages (your existing code)
+    // Auto-hide success/error messages 
     setTimeout(function () {
       var successMsg = document.getElementById("successMessage");
       if (successMsg) {

@@ -19,21 +19,22 @@
 
 	<div class="content">
 		<div class="header">
-			<c:if test="${not empty sessionScope.successMessage}">
-				<div class="success-message" id="successMessage">${sessionScope.successMessage}</div>
-				<c:remove var="successMessage" scope="session" />
-			</c:if>
-
-			<c:if test="${not empty sessionScope.errorMessage}">
-				<div class="error-message" id="errorMessage">${sessionScope.errorMessage}</div>
-				<c:remove var="errorMessage" scope="session" />
-			</c:if>
 			<div class="header-icon">
 				<i class="fas fa-user"></i>
 			</div>
 			<h1>My Profile</h1>
 		</div>
+		<c:if test="${not empty sessionScope.successMessage}">
+			<div class="success-message" id="successMessage">${sessionScope.successMessage}</div>
+			<c:remove var="successMessage" scope="session" />
+		</c:if>
+
+		<c:if test="${not empty sessionScope.errorMessage}">
+			<div class="error-message" id="errorMessage">${sessionScope.errorMessage}</div>
+			<c:remove var="errorMessage" scope="session" />
+		</c:if>
 		<div class="profile-container">
+			<img alt="" src="">
 			<div class="profile-pic"
 				style="background-image: url('${adminImage}');">
 				<div class="online-indicator"></div>
@@ -48,17 +49,14 @@
 
 		<!-- Editable Profile Form -->
 		<form action="${pageContext.request.contextPath}/Admin/ProfileUpdate"
-			method="post" class="profile-details">
+			method="post" enctype="multipart/form-data" class="profile-details">
 			<div class="details-grid">
-
-				<!-- First Name -->
 				<div class="detail-item">
 					<label>First Name</label> <input type="text" name="firstName"
 						value="${admins.firstName}" required /> <input type="hidden"
 						name="userId" value="${admins.userId}" />
 				</div>
 
-				<!-- Last Name -->
 				<div class="detail-item">
 					<label>Last Name</label> <input type="text" name="lastName"
 						value="${admins.lastName}" required />
@@ -69,18 +67,16 @@
 						value="${admins.address}" required />
 				</div>
 
-				<!-- DOB -->
 				<div class="detail-item">
 					<label>Date of Birth</label> <input type="date" name="dob"
 						value="${admins.dateOfBirth}" required />
 				</div>
 
-				<!-- Phone -->
 				<div class="detail-item">
 					<label>Phone</label> <input type="text" name="contact_num"
 						value="${admins.phone}" required />
 				</div>
-
+				
 				<div class="detail-item readonly">
 					<label>Gender</label>
 					<div class="readonly-box">
@@ -90,7 +86,6 @@
 					</div>
 				</div>
 
-				<!-- Department (Read-only) -->
 				<div class="detail-item readonly">
 					<label>Department</label>
 					<div class="readonly-box">
@@ -98,7 +93,6 @@
 					</div>
 				</div>
 
-				<!-- Blood Group (Read-only) -->
 				<div class="detail-item readonly">
 					<label>Blood Group</label>
 					<div class="readonly-box">
@@ -106,12 +100,15 @@
 					</div>
 				</div>
 
-				<!-- Employee Since (Read-only, spans full row) -->
 				<div class="detail-item readonly" style="grid-column: span 2;">
 					<label>Employee Since</label>
 					<div class="readonly-box">
 						<i class="fas fa-briefcase"></i> <span>${employeeTimeDuration}</span>
 					</div>
+				</div>
+				<div class="detail-item">
+					<label>Update Profile Picture</label> <input type="file"
+						name="photo" accept="image/png, image/jpeg" />
 				</div>
 			</div>
 
@@ -124,7 +121,7 @@
 			action="${pageContext.request.contextPath}/Admin/PasswordUpdate"
 			method="post" class="profile-details"
 			style="display: none; margin-top: 20px;">
-			<input type="hidden" name="userId" value="${admins.userId}" />
+			<input type="hidden" name="userId" value="${admins.userId}" />	
 			<div class="detail-item">
 				<label>Current Password</label>
 				<div class="password-wrapper">

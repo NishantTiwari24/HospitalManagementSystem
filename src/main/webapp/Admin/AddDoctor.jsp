@@ -27,10 +27,12 @@
 						<label for="first_name">First Name</label> <input type="text"
 							id="first_name" name="first_name" placeholder="First Name"
 							required>
+							<span class="error-text"></span>
 					</div>
 					<div>
 						<label for="last_name">Last Name</label> <input type="text"
 							id="last_name" name="last_name" placeholder="Last Name" required>
+							<span class="error-text"></span>
 					</div>
 				</div>
 
@@ -38,10 +40,12 @@
 					<div>
 						<label for="email">Email</label> <input type="email" id="email"
 							name="email" placeholder="eg@example.com" required>
+							<span class="error-text"></span>
 					</div>
 					<div>
 						<label for="phone">Phone Number</label> <input type="tel"
 							id="phone" name="phone" placeholder="Phone Number" required>
+							<span class="error-text"></span>
 					</div>
 				</div>
 
@@ -79,18 +83,21 @@
 					<div>
 						<label for="password">Password</label> <input type="password"
 							id="password" name="password" placeholder="Password" required>
+							<span class="toggle-password" onclick="togglePassword()">Show</span>
 					</div>
 				</div>
 
 				<div class="form-row">
 						<input type="hidden" id="role" name="role" value="Doctor">
 					<div>
-						<label for="dob">Date of Birth</label> <input type="date" id="dob"
-							name="dob" required>
+						<label for="dob">Date of Birth</label> <input type="date" id="date_of_birth"
+							name="date_of_birth" required>
+							<span class="error-text"></span>
 					</div>
 					<div>
 						 <label for="address">Address</label>
         				<input type="text" id="address" name="address" placeholder="eg: Bagar-1, Pokhara" required>
+        				<span class="error-text"></span>
 					</div>
 				</div>
 				<!-- New fields for Doctor-specific info -->
@@ -108,6 +115,7 @@
 						<label for="licenseNumber">License Number</label> <input
 							type="text" id="licenseNumber" name="licenseNumber"
 							placeholder="License Number" required>
+							<span class="error-text"></span>
 					</div>
 				</div>
 
@@ -116,10 +124,12 @@
 						<label for="experience">Years of Experience</label> <input
 							type="number" id="experience" name="experience" min="0"
 							placeholder="Years" required>
+							<span class="error-text"></span>
 					</div>
 					<div>
 						<label for="photo">Upload Photo</label> <input type="file"
 							id="photo" name="photo" accept="image/jpeg, image/jpg, image/png" required>
+							<span class="error-text"></span>
 					</div>
 				</div>
 

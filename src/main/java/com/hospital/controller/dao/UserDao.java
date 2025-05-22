@@ -225,7 +225,6 @@ public class UserDao {
 
 	    return null;
 	}
-	
 	public List<User> searchPatients(String role,String searchTerm) throws SQLException {
 	    List<User> users = new ArrayList<>();
 	    if (searchTerm == null) {
@@ -262,14 +261,15 @@ public class UserDao {
 	}
 	
 	public boolean updateUserProfile(User user) {
-        String sql = "UPDATE user SET first_name= ?, last_name= ?, address= ?, date_of_birth= ?, phone= ? WHERE user_id= ?";
+        String sql = "UPDATE user SET first_name= ?, last_name= ?, address= ?, date_of_birth= ?, phone= ?, photo_url = ? WHERE user_id= ?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, user.getFirstName());
             ps.setString(2, user.getLastName());
             ps.setString(3, user.getAddress());
             ps.setString(4, user.getDateOfBirth());
             ps.setString(5, user.getPhone());
-            ps.setInt(6, user.getUserId());
+            ps.setInt(7, user.getUserId());
+            ps.setString(6, user.getPhotoUrl());
             return ps.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
@@ -318,5 +318,4 @@ public class UserDao {
         }
         return false;
     }
-	
 }

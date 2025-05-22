@@ -40,7 +40,7 @@ public class DoctorProfile extends HttpServlet {
          
             UserDao userDao = new UserDao(con);
             String employeeTimeDuration = userDao.getJoinDurationFormatted(userId);
-            String doctorImage = userDao.getUserImageById(userId);
+            String doctorImage =  userDao.getUserImageById(userId);
             User doctors = userDao.getUserById(userId);
             
             

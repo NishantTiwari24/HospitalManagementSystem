@@ -20,20 +20,19 @@
 
 	<div class="content">
 		<div class="header">
-			<c:if test="${not empty sessionScope.successMessage}">
-				<div class="success-message" id="successMessage">${sessionScope.successMessage}</div>
-				<c:remove var="successMessage" scope="session" />
-			</c:if>
-
-			<c:if test="${not empty sessionScope.errorMessage}">
-				<div class="error-message" id="errorMessage">${sessionScope.errorMessage}</div>
-				<c:remove var="errorMessage" scope="session" />
-			</c:if>
 			<div class="header-icon">
 				<i class="fas fa-user"></i>
 			</div>
 			<h1>My Profile</h1>
 		</div>
+		<c:if test="${not empty sessionScope.successMessage}">
+				<div class="success-message" id="successMessage">${sessionScope.successMessage}</div>
+				<c:remove var="successMessage" scope="session" />
+			</c:if>
+			<c:if test="${not empty sessionScope.errorMessage}">
+				<div class="error-message" id="errorMessage">${sessionScope.errorMessage}</div>
+				<c:remove var="errorMessage" scope="session" />
+			</c:if>
 		<div class="profile-container">
 			<div class="profile-pic"
 				style="background-image: url('${receiptionistImage}');">
@@ -49,7 +48,7 @@
 
 		<!-- Editable Profile Form -->
 		<form action="${pageContext.request.contextPath}/Receptionist/ProfileUpdate"
-			method="post" class="profile-details">
+			method="post" enctype="multipart/form-data" class="profile-details">
 			<div class="details-grid">
 
 				<div class="detail-item">
@@ -106,6 +105,10 @@
 					<div class="readonly-box">
 						<i class="fas fa-briefcase"></i> <span>${employeeTimeDuration}</span>
 					</div>
+				</div>
+				<div class="detail-item">
+					<label>Update Profile Picture</label> <input type="file"
+						name="photo" accept="image/jpeg" />
 				</div>
 			</div>
 

@@ -98,6 +98,6 @@ public class AdminDoctorListUpdate extends HttpServlet {
 	        request.getSession().setAttribute("errorMessage", "An error occurred.");
 	    }
 
-	    response.sendRedirect(request.getContextPath() + "/Admin/AdminDoctorList"); 
+	    response.sendRedirect(request.getContextPath() + "/Admin/DoctorList"); 
 	}
 }

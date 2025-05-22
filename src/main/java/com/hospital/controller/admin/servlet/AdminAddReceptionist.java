@@ -50,18 +50,17 @@ public class AdminAddReceptionist extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			try (Connection con = DatabaseConnection.getConnection()) {
         	
-        	Part filePart = request.getPart("photo");
-        	String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+				Part filePart = request.getPart("photo");
+	        	String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
 
-        	String appPath = request.getServletContext().getRealPath("");
-        	String photosDir = "photos/Receptionist_Image";
+	        	String appPath = request.getServletContext().getRealPath("");
+	        	String photosDir = "/photos/Receptionist_Image";
 
-        	File dir = new File(appPath + File.separator + photosDir);
-        	String fullSavePath = dir + File.separator + fileName;
-        	filePart.write(fullSavePath);
-        	
-        	String relativeWebPath = photosDir + "/" + fileName;
-
+	        	File dir = new File(appPath + File.separator + photosDir);
+	        	String fullSavePath = dir + File.separator + fileName;
+	        	filePart.write(fullSavePath);
+	        	
+	        	String relativeWebPath = "/HMS" + photosDir + "/" + fileName;
 
             // Get form parameters
             String firstName = request.getParameter("first_name");
@@ -73,7 +72,7 @@ public class AdminAddReceptionist extends HttpServlet {
             String username = request.getParameter("username");
             String plainPassword = request.getParameter("password");
             String hashedPassword = PasswordUtil.hashPassword(plainPassword);
-            String dob = request.getParameter("dob");
+            String dob = request.getParameter("date_of_birth");
             String role = request.getParameter("role");
             String address = request.getParameter("address");
             String photoUrl = relativeWebPath;

@@ -58,7 +58,7 @@
 					<tbody>
 						<c:if test="${empty searchpatient}">
 							<script>
-								window.location.href = '${pageContext.request.contextPath}/AdminAppointmentList';
+								window.location.href = '${pageContext.request.contextPath}/Admin/AppointmentList';
 							</script>
 						</c:if>
 						<c:forEach var="sp" items="${searchpatient}">

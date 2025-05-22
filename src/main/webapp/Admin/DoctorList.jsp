@@ -175,6 +175,10 @@ button:hover {
 								<td><select name="gender" form="form-${sp.user.userId}">
 										<option value="Male"
 											${sp.user.gender == 'Male' ? 'selected' : ''}>Male</option>
+										<option value="Female"
+											${sp.user.gender == 'Female' ? 'selected' : ''}>Female</option>
+										<option value="Other"
+											${sp.user.gender == 'Other' ? 'selected' : ''}>Other</option>
 										<!-- other options -->
 								</select></td>
 								<td><input type="date" name="dateOfBirth"

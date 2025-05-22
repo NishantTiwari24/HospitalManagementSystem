@@ -28,10 +28,12 @@
 						<label for="first_name">First Name</label> <input type="text"
 							id="first_name" name="first_name" placeholder="First Name"
 							required>
+							<span class="error-text"></span>
 					</div>
 					<div>
 						<label for="last_name">Last Name</label> <input type="text"
 							id="last_name" name="last_name" placeholder="Last Name" required>
+							<span class="error-text"></span>
 					</div>
 				</div>
 
@@ -43,6 +45,7 @@
 					<div>
 						<label for="phone">Phone Number</label> <input type="tel"
 							id="phone" name="phone" placeholder="Phone Number" required>
+							<span class="error-text"></span>
 					</div>
 				</div>
 
@@ -57,8 +60,9 @@
 						</select>
 					</div>
 					<div>
-						<label for="dob">Date of Birth</label> <input type="date" id="dob"
-							name="dob" required>
+						<label for="date_of_birth">Date of Birth</label> <input type="date" id="date_of_birth"
+							name="date_of_birth" required>
+							<span class="error-text"></span>
 					</div>
 				</div>
 
@@ -70,6 +74,7 @@
 					<div>
 						<label for="password">Password</label> <input type="password"
 							id="password" name="password" placeholder="Password" required>
+							<span class="toggle-password" onclick="togglePassword()">Show</span>
 					</div>
 				</div>
 

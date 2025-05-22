@@ -6,7 +6,7 @@
 			<p>MissionMarsX</p>
 		</div>
 		<a
-			href="${pageContext.request.contextPath}/Receptionist/Home.jsp"
+			href="${pageContext.request.contextPath}/Receptionist/Home"
 			class="menu-item"> <span>Dashboard</span>
 		</a> 
 		<a

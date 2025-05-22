@@ -37,7 +37,7 @@ public class AdminProfile extends HttpServlet {
 		try (Connection con = DatabaseConnection.getConnection()) {
             User admin = (User) session.getAttribute("adminobj");
             int userId = admin.getUserId();
-            
+           
 
             UserDao userDao = new UserDao(con);
             String employeeTimeDuration = userDao.getJoinDurationFormatted(userId);
