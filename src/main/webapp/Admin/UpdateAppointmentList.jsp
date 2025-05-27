@@ -135,5 +135,6 @@
 			</form>
 		</div>
 	</div>
+	<script src="${pageContext.request.contextPath}/JS/main.js"></script>
 </body>
 </html>

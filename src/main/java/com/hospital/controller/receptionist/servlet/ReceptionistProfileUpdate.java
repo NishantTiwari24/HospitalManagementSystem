@@ -1,8 +1,6 @@
 package com.hospital.controller.receptionist.servlet;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.sql.Connection;
 
 import javax.servlet.ServletException;
@@ -11,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 import com.hospital.controller.dao.UserDao;
 import com.hospital.controller.database.DatabaseConnection;
@@ -54,48 +51,11 @@ public class ReceptionistProfileUpdate extends HttpServlet {
     		UserDao dao = new UserDao(con);
         	
         	int userId = Integer.parseInt(request.getParameter("userId"));
-        	
-        	Part filePart = request.getPart("photo");
-        	String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-
-        	String appPath = request.getServletContext().getRealPath("");
-
-        	String oldPhotoPath = dao.getUserImageById(userId);
-
-        	if (oldPhotoPath != null && !oldPhotoPath.isEmpty()) {
-        	    String contextPath = request.getContextPath();
-        	    String relativePhotoPath = oldPhotoPath.startsWith(contextPath)?oldPhotoPath.substring(contextPath.length()) : oldPhotoPath; 
-        	   
-        	    File oldFile = new File(appPath + relativePhotoPath);
-
-        	    if (oldFile.exists()) {
-        	        boolean deleted = oldFile.delete();
-        	        if (!deleted) {
-        	            System.out.println("Failed to delete old image: " + oldFile.getAbsolutePath());
-        	        }
-        	    }
-        	}
-
-        	String photosDir = "/photos/Receptionist_Image";
-        	File dir = new File(appPath + photosDir);
-        	if (!dir.exists()) {
-        	    dir.mkdirs();
-        	}
-
-        	String fullSavePath = dir + File.separator + fileName;
-        	filePart.write(fullSavePath);
-
-        	String relativeWebPath = "/HMS" + photosDir + "/" + fileName;
-
-        
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
             String address = request.getParameter("address");
             String dob = request.getParameter("dob");
             String contactNum = request.getParameter("contact_num");
-            String photo = relativeWebPath;
-            
-
 
             User receptionist = new User();
             receptionist.setUserId(userId);
@@ -104,7 +64,6 @@ public class ReceptionistProfileUpdate extends HttpServlet {
             receptionist.setAddress(address);
             receptionist.setDateOfBirth(dob);
             receptionist.setPhone(contactNum);
-            receptionist.setPhotoUrl(photo);
             
             boolean success = dao.updateUserProfile(receptionist);
             

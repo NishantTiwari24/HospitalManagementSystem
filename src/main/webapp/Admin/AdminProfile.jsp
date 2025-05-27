@@ -106,10 +106,6 @@
 						<i class="fas fa-briefcase"></i> <span>${employeeTimeDuration}</span>
 					</div>
 				</div>
-				<div class="detail-item">
-					<label>Update Profile Picture</label> <input type="file"
-						name="photo" accept="image/png, image/jpeg" />
-				</div>
 			</div>
 
 			<button type="submit" class="update-btn">Update Profile</button>

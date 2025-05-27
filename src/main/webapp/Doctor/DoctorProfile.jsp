@@ -16,7 +16,7 @@
 </head>
 <body>
 	<!-- Sidebar -->
-		<jsp:include page="/Receptionist/ReceptionistSidePanel.jsp" />
+		<jsp:include page="/Doctor/DoctorSidePanel.jsp" />
 
 	<div class="content">
 		<div class="header">
@@ -38,11 +38,11 @@
 				style="background-image: url('${doctorImage}');">
 				<div class="online-indicator"></div>
 			</div>
-			<h2 class="profile-name">Recp. ${doctors.firstName}
+			<h2 class="profile-name">Dr. ${doctors.firstName}
 				${doctors.lastName}</h2>
 			<p class="profile-email">${doctors.email}</p>
 			<div class="profile-badges">
-				<span class="badge badge-blue">Receptionist Staff</span>
+				<span class="badge badge-blue">Doctor Staff</span>
 			</div>
 		</div>
 
@@ -105,10 +105,6 @@
 					<div class="readonly-box">
 						<i class="fas fa-briefcase"></i> <span>${employeeTimeDuration}</span>
 					</div>
-				</div>
-				<div class="detail-item">
-					<label>Update Profile Picture</label> <input type="file"
-						name="photo" accept="image/jpeg" />
 				</div>
 			</div>
 
