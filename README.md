@@ -64,10 +64,6 @@ The system is built using **MVC architecture** to ensure maintainability, scalab
 - 📅 **Appointment scheduling and management**  
 - 📈 Scalable and maintainable codebase  
 
----
-
-## 🗂️ Project Structure
-
 
 ---
 
